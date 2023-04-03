@@ -3,34 +3,17 @@ package pl.javastart.task;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class CalcPriceInEuro {
 
     static BigDecimal getMinPrice(List<BigDecimal> result) {
-        if (result.isEmpty()) {
-            return null;
-        }
-        BigDecimal min = result.get(0);
-        for (int i = 1; i < result.size(); i++) {
-            if (result.get(i).compareTo(min) < 0) {
-                min = result.get(i);
-            }
-        }
-        return min;
+        return Collections.min(result);
     }
 
     static BigDecimal getMaxPrice(List<BigDecimal> result) {
-        if (result.isEmpty()) {
-            return null;
-        }
-        BigDecimal max = result.get(0);
-        for (int i = 1; i < result.size(); i++) {
-            if (result.get(i).compareTo(max) > 0) {
-                max = result.get(i);
-            }
-        }
-        return max;
+        return Collections.max(result);
     }
 
     static BigDecimal sumPriceInEuro(List<BigDecimal> prices) {
